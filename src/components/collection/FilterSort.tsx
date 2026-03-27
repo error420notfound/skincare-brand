@@ -126,7 +126,7 @@ export default function FilterSort({ products, collectionName }: Props) {
               transition={{ duration: 0.45, delay: i * 0.05 }}
               layout
             >
-              <a href={`/products/${product.id}`} className="product-card-fs-img-link">
+              <a href={`${import.meta.env.BASE_URL}products/${product.id}`} className="product-card-fs-img-link">
                 <div className="product-card-fs-img">
                   <img src={product.images[0]} alt={product.name} width={600} height={750} loading="lazy" />
                   {product.images[1] && (
@@ -138,12 +138,12 @@ export default function FilterSort({ products, collectionName }: Props) {
               <div className="product-card-fs-info">
                 {product.weight && <span className="product-card-fs-weight">{product.weight}</span>}
                 <h3 className="product-card-fs-name">
-                  <a href={`/products/${product.id}`}>{product.name}</a>
+                  <a href={`${import.meta.env.BASE_URL}products/${product.id}`}>{product.name}</a>
                 </h3>
                 <p className="product-card-fs-desc">{product.shortDesc}</p>
                 <div className="product-card-fs-footer">
                   <span className="product-card-fs-price">€{product.price}</span>
-                  <a href={`/products/${product.id}`} className="product-card-fs-cta">View →</a>
+                  <a href={`${import.meta.env.BASE_URL}products/${product.id}`} className="product-card-fs-cta">View →</a>
                 </div>
               </div>
             </motion.article>

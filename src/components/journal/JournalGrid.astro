@@ -12,6 +12,7 @@ const allEntries = await getCollection('journal');
 const sorted = allEntries.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 const entries = preview ? sorted.slice(0, 3) : sorted;
 const [featured, ...rest] = entries;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <section class="journal-section section" aria-label="Journal entries">
@@ -24,7 +25,7 @@ const [featured, ...rest] = entries;
         </h2>
       </div>
       {preview && (
-        <a href="/journal" class="link-underline reveal reveal--delay-2">All entries</a>
+        <a href={`${base}/journal`} class="link-underline reveal reveal--delay-2">All entries</a>
       )}
     </header>
 

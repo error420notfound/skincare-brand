@@ -69,7 +69,7 @@ export default function CartDrawer() {
               {items.length === 0 ? (
                 <div className="cart-empty">
                   <p className="cart-empty-text">Your cart is empty.</p>
-                  <a href="/collections/facial-care" className="btn btn--secondary btn--sm" onClick={closeCart}>
+                  <a href={`${import.meta.env.BASE_URL}collections/facial-care`} className="btn btn--secondary btn--sm" onClick={closeCart}>
                     Explore Products
                   </a>
                 </div>
@@ -153,10 +153,10 @@ export default function CartDrawer() {
                     <span>€{total.toFixed(2)}</span>
                   </div>
                 </div>
-                <a href="/checkout" className="btn btn--primary btn--lg cart-checkout-btn" onClick={closeCart}>
+                <a href={`${import.meta.env.BASE_URL}checkout`} className="btn btn--primary btn--lg cart-checkout-btn" onClick={closeCart}>
                   Proceed to Checkout
                 </a>
-                <a href="/cart" className="cart-view-link link-underline" onClick={closeCart}>
+                <a href={`${import.meta.env.BASE_URL}cart`} className="cart-view-link link-underline" onClick={closeCart}>
                   View full cart
                 </a>
               </div>

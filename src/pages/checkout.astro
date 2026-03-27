@@ -1,6 +1,7 @@
 ---
 import Layout from '../components/layout/Layout.astro';
 import CheckoutFlow from '../components/checkout/CheckoutFlow';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <Layout
@@ -9,7 +10,7 @@ import CheckoutFlow from '../components/checkout/CheckoutFlow';
 >
   <div class="checkout-page">
     <header class="checkout-page-header container container--xl">
-      <a href="/" class="checkout-logo">Maison Clair</a>
+      <a href={`${base}/`} class="checkout-logo">Maison Clair</a>
     </header>
 
     <div class="container checkout-container">

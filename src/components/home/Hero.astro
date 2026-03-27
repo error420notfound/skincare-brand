@@ -1,4 +1,5 @@
 ---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <section class="hero" aria-label="Brand hero">
@@ -13,8 +14,8 @@
         Maison Clair formulates each product as a singular object: precise, purposeful, and built to last. No superfluous steps. No empty promises.
       </p>
       <div class="hero-actions reveal reveal--delay-3">
-        <a href="/collections/facial-care" class="btn btn--primary btn--lg">Explore Collections</a>
-        <a href="/about" class="hero-about-link link-underline">Our Philosophy</a>
+        <a href={`${base}/collections/facial-care`} class="btn btn--primary btn--lg">Explore Collections</a>
+        <a href={`${base}/about`} class="hero-about-link link-underline">Our Philosophy</a>
       </div>
     </div>
 
@@ -41,7 +42,7 @@
       </div>
       <div class="hero-annotation reveal reveal--delay-4">
         <span class="t-eyebrow">Featured</span>
-        <a href="/products/lumiere-serum" class="hero-annotation-link">
+        <a href={`${base}/products/lumiere-serum`} class="hero-annotation-link">
           Lumière Renewing Serum<br />
           <span>€145</span>
         </a>

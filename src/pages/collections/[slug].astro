@@ -51,6 +51,7 @@ export async function getStaticPaths() {
 }
 
 const { collection, products } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 const allCollections = [
   { slug: 'facial-care', name: 'Facial Care' },
@@ -76,7 +77,7 @@ const allCollections = [
           <nav class="collection-nav reveal reveal--delay-2" aria-label="Other collections">
             {allCollections.map((col) => (
               <a
-                href={`/collections/${col.slug}`}
+                href={`${base}/collections/${col.slug}`}
                 class={`collection-nav-link ${col.slug === collection.slug ? 'collection-nav-link--active' : ''}`}
               >
                 {col.name}

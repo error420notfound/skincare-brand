@@ -13,7 +13,7 @@ function CartPageInner() {
       <div className="cart-page-empty">
         <p className="cart-page-empty-text">Your cart is empty.</p>
         <p className="cart-page-empty-sub">You have not yet selected anything. This is entirely fine.</p>
-        <a href="/collections/facial-care" className="btn btn--secondary btn--md" style={{ display: 'inline-flex', marginTop: '2rem' }}>
+        <a href={`${import.meta.env.BASE_URL}collections/facial-care`} className="btn btn--secondary btn--md" style={{ display: 'inline-flex', marginTop: '2rem' }}>
           Explore Collections
         </a>
         <style>{`
@@ -59,14 +59,14 @@ function CartPageInner() {
               transition={{ duration: 0.4 }}
             >
               <div className="cart-page-item-product">
-                <a href={`/products/${item.id}`} className="cart-page-item-img-link">
+                <a href={`${import.meta.env.BASE_URL}products/${item.id}`} className="cart-page-item-img-link">
                   <div className="cart-page-item-img">
                     <img src={item.image} alt={item.name} width={100} height={125} />
                   </div>
                 </a>
                 <div className="cart-page-item-info">
                   <h3 className="cart-page-item-name">
-                    <a href={`/products/${item.id}`}>{item.name}</a>
+                    <a href={`${import.meta.env.BASE_URL}products/${item.id}`}>{item.name}</a>
                   </h3>
                   {item.weight && <p className="cart-page-item-weight">{item.weight}</p>}
                   <p className="cart-page-item-price">€{item.price.toFixed(2)}</p>
@@ -132,7 +132,7 @@ function CartPageInner() {
           </div>
         </div>
 
-        <a href="/checkout" className="btn btn--primary btn--lg cart-summary-cta">
+        <a href={`${import.meta.env.BASE_URL}checkout`} className="btn btn--primary btn--lg cart-summary-cta">
           Proceed to Checkout
           <ArrowRight size={16} strokeWidth={1.5} />
         </a>

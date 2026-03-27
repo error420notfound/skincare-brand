@@ -8,6 +8,7 @@ interface Props {
 
 const { entry, variant = 'default' } = Astro.props;
 const { title, date, category, excerpt, coverImage, readingTime } = entry.data;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 const formattedDate = new Intl.DateTimeFormat('en-GB', {
   day: 'numeric',
@@ -17,7 +18,7 @@ const formattedDate = new Intl.DateTimeFormat('en-GB', {
 ---
 
 <article class={`journal-card journal-card--${variant}`}>
-  <a href={`/journal/${entry.id}`} class="journal-card-image-link" tabindex="-1" aria-hidden="true">
+  <a href={`${base}/journal/${entry.id}`} class="journal-card-image-link" tabindex="-1" aria-hidden="true">
     <div class="journal-card-img img-hover-wrap">
       <img
         src={coverImage}
@@ -39,12 +40,12 @@ const formattedDate = new Intl.DateTimeFormat('en-GB', {
     </div>
 
     <h3 class="journal-card-title">
-      <a href={`/journal/${entry.id}`} class="link-underline">{title}</a>
+      <a href={`${base}/journal/${entry.id}`} class="link-underline">{title}</a>
     </h3>
 
     <p class="journal-card-excerpt">{excerpt}</p>
 
-    <a href={`/journal/${entry.id}`} class="journal-card-cta link-underline">Read →</a>
+    <a href={`${base}/journal/${entry.id}`} class="journal-card-cta link-underline">Read →</a>
   </div>
 </article>
 

@@ -15,6 +15,7 @@ export async function getStaticPaths() {
 
 const { product } = Astro.props;
 const { name, collection, collectionSlug, price, description, shortDesc, ingredients, usage, benefits, images, inStock, weight } = product.data;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <Layout title={name} description={shortDesc}>
@@ -22,9 +23,9 @@ const { name, collection, collectionSlug, price, description, shortDesc, ingredi
     <!-- Breadcrumb -->
     <nav class="pdp-breadcrumb container container--xl" aria-label="Breadcrumb">
       <ol class="breadcrumb-list">
-        <li><a href="/">Home</a></li>
+        <li><a href={`${base}/`}>Home</a></li>
         <li aria-hidden="true">/</li>
-        <li><a href={`/collections/${collectionSlug}`}>{collection}</a></li>
+        <li><a href={`${base}/collections/${collectionSlug}`}>{collection}</a></li>
         <li aria-hidden="true">/</li>
         <li aria-current="page">{name}</li>
       </ol>

@@ -1,4 +1,5 @@
 ---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const collections = [
   {
     slug: 'facial-care',
@@ -40,7 +41,7 @@ const collections = [
 
     <div class="collections-grid">
       {collections.map((col, i) => (
-        <a href={`/collections/${col.slug}`} class={`collection-card reveal reveal--delay-${i + 1}`}>
+        <a href={`${base}/collections/${col.slug}`} class={`collection-card reveal reveal--delay-${i + 1}`}>
           <div class="collection-img img-hover-wrap">
             <img src={col.image} alt={col.name} width="600" height="750" loading="lazy" />
             <div class="collection-img-overlay"></div>

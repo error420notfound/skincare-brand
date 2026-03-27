@@ -1,4 +1,5 @@
 ---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <section class="philosophy section--lg" aria-label="Brand philosophy">
@@ -33,7 +34,7 @@
           <p class="philosophy-body reveal reveal--delay-3">
             Each formulation begins with a question: what does the skin actually need here, and what is the most direct and honest way to provide it? We do not add ingredients for their marketing value. We do not reformulate to create an excuse for a new campaign. We iterate slowly, with rigour, and we release a product only when it has earned the shelf.
           </p>
-          <a href="/about" class="btn btn--secondary reveal reveal--delay-4">Read Our Story</a>
+          <a href={`${base}/about`} class="btn btn--secondary reveal reveal--delay-4">Read Our Story</a>
         </div>
       </div>
     </div>

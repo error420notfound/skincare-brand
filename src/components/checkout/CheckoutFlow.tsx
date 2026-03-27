@@ -76,7 +76,7 @@ function CheckoutFlowInner() {
             MC-{Math.random().toString(36).slice(2, 8).toUpperCase()}
           </span>
         </div>
-        <a href="/" className="btn btn--secondary btn--lg" style={{ display: 'inline-flex', marginTop: '2rem' }}>
+        <a href={import.meta.env.BASE_URL} className="btn btn--secondary btn--lg" style={{ display: 'inline-flex', marginTop: '2rem' }}>
           Return to Maison Clair
         </a>
 

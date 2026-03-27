@@ -12,6 +12,7 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const { Content } = await entry.render();
 const { title, date, category, excerpt, coverImage, readingTime } = entry.data;
 
@@ -32,7 +33,7 @@ const related = allEntries.filter((e) => e.id !== entry.id).slice(0, 2);
     <header class="post-header">
       <div class="container container--md">
         <nav class="post-breadcrumb" aria-label="Breadcrumb">
-          <a href="/journal" class="link-underline">← Field Notes</a>
+          <a href={`${base}/journal`} class="link-underline">← Field Notes</a>
         </nav>
         <div class="post-meta">
           <span class="t-eyebrow">{category}</span>
@@ -90,7 +91,7 @@ const related = allEntries.filter((e) => e.id !== entry.id).slice(0, 2);
               }).format(new Date(rel.data.date));
               return (
                 <article class={`post-related-item reveal reveal--delay-${i + 1}`}>
-                  <a href={`/journal/${rel.id}`} class="post-related-img-link">
+                  <a href={`${base}/journal/${rel.id}`} class="post-related-img-link">
                     <div class="post-related-img img-hover-wrap">
                       <img src={rel.data.coverImage} alt={rel.data.title} width={600} height={400} loading="lazy" />
                     </div>
@@ -101,7 +102,7 @@ const related = allEntries.filter((e) => e.id !== entry.id).slice(0, 2);
                     <time class="t-eyebrow">{relDate}</time>
                   </div>
                   <h3 class="post-related-item-title">
-                    <a href={`/journal/${rel.id}`} class="link-underline">{rel.data.title}</a>
+                    <a href={`${base}/journal/${rel.id}`} class="link-underline">{rel.data.title}</a>
                   </h3>
                 </article>
               );

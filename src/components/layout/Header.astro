@@ -1,17 +1,19 @@
 ---
 import CartIcon from '../cart/CartIcon';
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
 const nav = [
-  { label: 'Collections', href: '/collections/facial-care' },
-  { label: 'About', href: '/about' },
-  { label: 'Journal', href: '/journal' },
+  { label: 'Collections', href: `${base}/collections/facial-care` },
+  { label: 'About', href: `${base}/about` },
+  { label: 'Journal', href: `${base}/journal` },
 ];
 ---
 
 <header class="site-header" id="site-header">
   <div class="header-inner">
     <!-- Logo -->
-    <a href="/" class="header-logo" aria-label="Maison Clair — Home">
+    <a href={`${base}/`} class="header-logo" aria-label="Maison Clair — Home">
       <span class="logo-wordmark">Maison Clair</span>
     </a>
 
@@ -45,7 +47,7 @@ const nav = [
             <a href={item.href} class="mobile-nav-link">{item.label}</a>
           </li>
         ))}
-        <li><a href="/cart" class="mobile-nav-link">Cart</a></li>
+        <li><a href={`${base}/cart`} class="mobile-nav-link">Cart</a></li>
       </ul>
     </nav>
   </div>

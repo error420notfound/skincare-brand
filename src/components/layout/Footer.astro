@@ -1,23 +1,24 @@
 ---
 const year = new Date().getFullYear();
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 const columns = [
   {
     heading: 'Collections',
     links: [
-      { label: 'Facial Care', href: '/collections/facial-care' },
-      { label: 'Body Rituals', href: '/collections/body-rituals' },
-      { label: 'Hair Care', href: '/collections/hair-care' },
-      { label: 'Home Fragrance', href: '/collections/home-fragrance' },
+      { label: 'Facial Care', href: `${base}/collections/facial-care` },
+      { label: 'Body Rituals', href: `${base}/collections/body-rituals` },
+      { label: 'Hair Care', href: `${base}/collections/hair-care` },
+      { label: 'Home Fragrance', href: `${base}/collections/home-fragrance` },
     ],
   },
   {
     heading: 'The House',
     links: [
-      { label: 'About', href: '/about' },
-      { label: 'Journal', href: '/journal' },
-      { label: 'Ingredients', href: '/about#ingredients' },
-      { label: 'Sustainability', href: '/about#sustainability' },
+      { label: 'About', href: `${base}/about` },
+      { label: 'Journal', href: `${base}/journal` },
+      { label: 'Ingredients', href: `${base}/about#ingredients` },
+      { label: 'Sustainability', href: `${base}/about#sustainability` },
     ],
   },
   {
@@ -35,7 +36,7 @@ const columns = [
 <footer class="site-footer">
   <div class="footer-top container">
     <div class="footer-brand">
-      <a href="/" class="footer-logo">Maison Clair</a>
+      <a href={`${base}/`} class="footer-logo">Maison Clair</a>
       <p class="footer-tagline">
         A considered approach to skin.<br />
         Formulated with rare botanicals.
