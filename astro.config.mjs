@@ -5,5 +5,5 @@ export default defineConfig({
   integrations: [react()],
   output: 'static',
   site: 'https://error420notfound.github.io',
-  base: '/<YOUR-REPO-NAME>',
+  base: '/skincare-brand',
 });
