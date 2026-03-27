@@ -1,0 +1,176 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../components/layout/Layout.astro';
+import FilterSort from '../../components/collection/FilterSort';
+
+export async function getStaticPaths() {
+  const collections = [
+    {
+      slug: 'facial-care',
+      name: 'Facial Care',
+      description: 'Precise formulations for the face, built around fermented botanicals and clinically studied actives. Each product represents a specific, documented answer to a question about skin.',
+    },
+    {
+      slug: 'body-rituals',
+      name: 'Body Rituals',
+      description: 'Oils, washes, and treatments that transform the daily act of bathing into something worth attending to. Formulated with the same rigour as our facial range.',
+    },
+    {
+      slug: 'hair-care',
+      name: 'Hair Care',
+      description: 'Protein-focused treatments that address the structural health of the hair shaft, not just its surface appearance. Developed in partnership with trichologists.',
+    },
+    {
+      slug: 'home-fragrance',
+      name: 'Home Fragrance',
+      description: 'Candles and diffusers composed with natural aromatic materials selected for their depth, longevity, and origin story. No synthetic fragrance materials.',
+    },
+  ];
+
+  const allProducts = await getCollection('products');
+
+  return collections.map((col) => ({
+    params: { slug: col.slug },
+    props: {
+      collection: col,
+      products: allProducts
+        .filter((p) => p.data.collectionSlug === col.slug)
+        .map((p) => ({
+          id: p.id,
+          name: p.data.name,
+          price: p.data.price,
+          shortDesc: p.data.shortDesc,
+          images: p.data.images,
+          collectionSlug: p.data.collectionSlug,
+          isNew: p.data.isNew,
+          featured: p.data.featured,
+          weight: p.data.weight,
+        })),
+    },
+  }));
+}
+
+const { collection, products } = Astro.props;
+
+const allCollections = [
+  { slug: 'facial-care', name: 'Facial Care' },
+  { slug: 'body-rituals', name: 'Body Rituals' },
+  { slug: 'hair-care', name: 'Hair Care' },
+  { slug: 'home-fragrance', name: 'Home Fragrance' },
+];
+---
+
+<Layout title={collection.name} description={collection.description}>
+  <div class="collection-page">
+    <!-- Page header -->
+    <header class="collection-header">
+      <div class="container container--xl">
+        <div class="collection-header-inner">
+          <div class="collection-header-text">
+            <p class="t-eyebrow reveal">Collection</p>
+            <h1 class="collection-title reveal reveal--delay-1">{collection.name}</h1>
+            <p class="collection-description reveal reveal--delay-2">{collection.description}</p>
+          </div>
+
+          <!-- Collection nav -->
+          <nav class="collection-nav reveal reveal--delay-2" aria-label="Other collections">
+            {allCollections.map((col) => (
+              <a
+                href={`/collections/${col.slug}`}
+                class={`collection-nav-link ${col.slug === collection.slug ? 'collection-nav-link--active' : ''}`}
+              >
+                {col.name}
+              </a>
+            ))}
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Products -->
+    <main class="container container--xl">
+      <FilterSort
+        products={products}
+        collectionName={collection.name}
+        client:load
+      />
+    </main>
+  </div>
+</Layout>
+
+<style>
+  .collection-page {
+    padding-top: 4rem; /* header height */
+  }
+
+  .collection-header {
+    padding-block: var(--space-12) var(--space-8);
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: var(--space-8);
+  }
+
+  .collection-header-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: var(--space-8);
+  }
+
+  .collection-header-text .t-eyebrow {
+    margin-bottom: var(--space-3);
+  }
+
+  .collection-title {
+    font-family: var(--font-serif);
+    font-size: var(--text-4xl);
+    font-weight: 300;
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tighter);
+    margin-bottom: var(--space-4);
+  }
+
+  .collection-description {
+    font-size: var(--text-md);
+    font-weight: 300;
+    color: var(--color-ink-muted);
+    line-height: var(--leading-relaxed);
+    max-width: 60ch;
+  }
+
+  .collection-nav {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    align-items: flex-end;
+  }
+
+  .collection-nav-link {
+    font-size: var(--text-xs);
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+    color: var(--color-ink-faint);
+    transition: color var(--transition-base);
+  }
+
+  .collection-nav-link:hover,
+  .collection-nav-link--active {
+    color: var(--color-ink);
+  }
+
+  .collection-nav-link--active {
+    font-weight: 500;
+  }
+
+  @media (max-width: 900px) {
+    .collection-header-inner {
+      grid-template-columns: 1fr;
+    }
+
+    .collection-nav {
+      flex-direction: row;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+    }
+  }
+</style>

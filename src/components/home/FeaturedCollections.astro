@@ -1,0 +1,176 @@
+---
+const collections = [
+  {
+    slug: 'facial-care',
+    name: 'Facial Care',
+    description: 'Precise formulations for the face, built around fermented botanicals and clinically studied actives.',
+    image: 'https://images.unsplash.com/photo-1570194065650-d99fb4bedf0a?w=800&q=85',
+    count: 4,
+  },
+  {
+    slug: 'body-rituals',
+    name: 'Body Rituals',
+    description: 'Oils, washes, and treatments that transform the daily act of bathing into something worth attending to.',
+    image: 'https://images.unsplash.com/photo-1600428877878-1a0fd85beda7?w=800&q=85',
+    count: 2,
+  },
+  {
+    slug: 'hair-care',
+    name: 'Hair Care',
+    description: 'Protein-focused treatments that address the structural health of the hair shaft, not just its surface.',
+    image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&q=85',
+    count: 1,
+  },
+  {
+    slug: 'home-fragrance',
+    name: 'Home Fragrance',
+    description: 'Candles and diffusers composed with natural aromatic materials selected for their depth and longevity.',
+    image: 'https://images.unsplash.com/photo-1602523961358-f9f03dd557db?w=800&q=85',
+    count: 1,
+  },
+];
+---
+
+<section class="collections section">
+  <div class="container">
+    <header class="collections-header">
+      <p class="t-eyebrow reveal">Collections</p>
+      <h2 class="collections-title reveal reveal--delay-1">Every formulation,<br /><em>a singular purpose.</em></h2>
+    </header>
+
+    <div class="collections-grid">
+      {collections.map((col, i) => (
+        <a href={`/collections/${col.slug}`} class={`collection-card reveal reveal--delay-${i + 1}`}>
+          <div class="collection-img img-hover-wrap">
+            <img src={col.image} alt={col.name} width="600" height="750" loading="lazy" />
+            <div class="collection-img-overlay"></div>
+          </div>
+          <div class="collection-info">
+            <div class="collection-meta">
+              <span class="t-eyebrow">{col.count} {col.count === 1 ? 'Product' : 'Products'}</span>
+            </div>
+            <h3 class="collection-name">{col.name}</h3>
+            <p class="collection-desc">{col.description}</p>
+            <span class="collection-cta link-underline">Explore</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .collections-header {
+    margin-bottom: var(--space-10);
+  }
+
+  .collections-header .t-eyebrow {
+    margin-bottom: var(--space-3);
+  }
+
+  .collections-title {
+    font-family: var(--font-serif);
+    font-size: var(--text-3xl);
+    font-weight: 300;
+    line-height: var(--leading-snug);
+    color: var(--color-ink);
+    max-width: 20ch;
+  }
+
+  .collections-title em {
+    font-style: italic;
+    color: var(--color-accent);
+  }
+
+  .collections-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-3);
+  }
+
+  .collection-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .collection-img {
+    position: relative;
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    margin-bottom: var(--space-3);
+    background: var(--color-bg-alt);
+  }
+
+  .collection-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .collection-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(26, 24, 22, 0.3) 0%, transparent 50%);
+    transition: opacity var(--transition-slow);
+    opacity: 0;
+  }
+
+  .collection-card:hover .collection-img-overlay {
+    opacity: 1;
+  }
+
+  .collection-meta {
+    margin-bottom: var(--space-1);
+  }
+
+  .collection-name {
+    font-family: var(--font-serif);
+    font-size: var(--text-xl);
+    font-weight: 400;
+    margin-bottom: var(--space-2);
+    transition: color var(--transition-base);
+  }
+
+  .collection-card:hover .collection-name {
+    color: var(--color-accent);
+  }
+
+  .collection-desc {
+    font-size: var(--text-sm);
+    color: var(--color-ink-muted);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-3);
+    max-width: 28ch;
+  }
+
+  .collection-cta {
+    font-size: var(--text-xs);
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+    color: var(--color-ink-muted);
+    transition: color var(--transition-base);
+  }
+
+  .collection-card:hover .collection-cta {
+    color: var(--color-ink);
+  }
+
+  @media (max-width: 1100px) {
+    .collections-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-4);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .collections-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-3);
+    }
+
+    .collection-desc {
+      display: none;
+    }
+  }
+</style>

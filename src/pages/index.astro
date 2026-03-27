@@ -1,0 +1,28 @@
+---
+import Layout from '../components/layout/Layout.astro';
+import Hero from '../components/home/Hero.astro';
+import FeaturedCollections from '../components/home/FeaturedCollections.astro';
+import PhilosophySection from '../components/home/PhilosophySection.astro';
+import ProductHighlights from '../components/home/ProductHighlights.astro';
+import JournalGrid from '../components/journal/JournalGrid.astro';
+import Divider from '../components/ui/Divider.astro';
+---
+
+<Layout
+  title="Maison Clair"
+  description="A considered approach to skin. Formulated with rare botanical ingredients and refined through decades of practice."
+>
+  <Hero />
+  <Divider variant="full" spacing="sm" />
+  <FeaturedCollections />
+  <PhilosophySection />
+  <ProductHighlights />
+  <JournalGrid preview />
+</Layout>
+
+<style>
+  /* Remove top padding from main since hero handles it */
+  :global(main.page-enter) {
+    padding-top: 0;
+  }
+</style>

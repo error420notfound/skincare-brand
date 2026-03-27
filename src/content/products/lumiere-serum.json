@@ -1,0 +1,32 @@
+{
+  "name": "Lumière Renewing Serum",
+  "collection": "Facial Care",
+  "collectionSlug": "facial-care",
+  "price": 145,
+  "shortDesc": "A luminous, fast-absorbing serum that refines texture and restores radiance through the power of fermented botanicals.",
+  "description": "Conceived in our Lausanne atelier over three years of quiet refinement, the Lumière Renewing Serum represents our deepest enquiry into botanical luminosity. A silken, water-like texture delivers a precise concentration of fermented Kakadu plum and alpine edelweiss extract—two ingredients chosen not for their novelty, but for their decades of documented efficacy.\n\nThe formula dissolves effortlessly into the skin, leaving no residue, no fragrance shadow—only a perceptible shift in clarity. With continued use across a 28-day cycle, the skin's surface texture is measurably refined, and a quality of light begins to emanate from within.\n\nWe do not promise transformation. We offer refinement.",
+  "ingredients": [
+    { "name": "Fermented Kakadu Plum", "benefit": "The world's highest natural source of vitamin C, fermented for superior bioavailability and gentleness on sensitised skin." },
+    { "name": "Alpine Edelweiss Extract", "benefit": "Grown at altitude under extreme UV exposure, this resilient plant imparts its antioxidant capacity to the skin." },
+    { "name": "Hyaluronic Acid Complex", "benefit": "A triple-molecular-weight complex that hydrates at every level of the epidermis, from surface to deep dermal layers." },
+    { "name": "Niacinamide", "benefit": "Clinically proven to reduce the appearance of pores, refine skin tone, and strengthen the barrier function." },
+    { "name": "Bakuchiol", "benefit": "The plant-derived alternative to retinol, offering comparable results without photosensitivity or irritation." }
+  ],
+  "usage": "Apply 3–4 drops to cleansed skin each morning and evening before moisturiser. Press gently into the face, neck, and décolletage. Allow 60 seconds to absorb fully before layering. Consistent daily application yields the most considered results.",
+  "benefits": [
+    "Visibly refines skin texture within 28 days",
+    "Restores natural luminosity without artificial sheen",
+    "Suitable for all skin types including sensitised",
+    "Fragrance-free, silicone-free formulation"
+  ],
+  "images": [
+    "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=800&q=85",
+    "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=800&q=85",
+    "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=800&q=85",
+    "https://images.unsplash.com/photo-1611080626919-7cf5a9dbab12?w=800&q=85"
+  ],
+  "inStock": true,
+  "featured": true,
+  "isNew": false,
+  "weight": "30ml"
+}

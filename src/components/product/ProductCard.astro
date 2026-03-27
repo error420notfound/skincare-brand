@@ -1,0 +1,181 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Badge from '../ui/Badge.astro';
+
+interface Props {
+  product: CollectionEntry<'products'>;
+  index?: number;
+  size?: 'default' | 'compact';
+}
+
+const { product, index = 0, size = 'default' } = Astro.props;
+const { name, price, shortDesc, images, collectionSlug, isNew, featured, weight } = product.data;
+---
+
+<article class={`product-card product-card--${size}`}>
+  <a href={`/products/${product.id}`} class="product-card-link" tabindex="-1" aria-hidden="true">
+    <div class="product-card-img img-hover-wrap">
+      <img
+        src={images[0]}
+        alt={name}
+        width="600"
+        height="750"
+        loading={index < 3 ? 'eager' : 'lazy'}
+      />
+      {images[1] && (
+        <img
+          src={images[1]}
+          alt={`${name} — alternate view`}
+          width="600"
+          height="750"
+          loading="lazy"
+          class="product-card-img-hover"
+        />
+      )}
+      <div class="product-card-badges">
+        {isNew && <Badge variant="new">New</Badge>}
+      </div>
+    </div>
+  </a>
+
+  <div class="product-card-info">
+    <div class="product-card-meta">
+      {weight && <span class="product-card-weight t-eyebrow">{weight}</span>}
+    </div>
+    <h3 class="product-card-name">
+      <a href={`/products/${product.id}`}>{name}</a>
+    </h3>
+    <p class="product-card-desc">{shortDesc}</p>
+    <div class="product-card-footer">
+      <span class="product-card-price">€{price}</span>
+      <a href={`/products/${product.id}`} class="product-card-cta link-underline">View Details</a>
+    </div>
+  </div>
+</article>
+
+<style>
+  .product-card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product-card-link {
+    display: block;
+    margin-bottom: var(--space-3);
+  }
+
+  .product-card-img {
+    position: relative;
+    aspect-ratio: 4/5;
+    overflow: hidden;
+    background: var(--color-bg-alt);
+  }
+
+  .product-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    inset: 0;
+    transition:
+      opacity var(--transition-slow),
+      transform var(--transition-crawl) ease;
+  }
+
+  .product-card-img-hover {
+    opacity: 0;
+  }
+
+  .product-card:hover .product-card-img-hover {
+    opacity: 1;
+  }
+
+  .product-card:hover .product-card-img img:first-child {
+    opacity: 0;
+  }
+
+  .product-card-badges {
+    position: absolute;
+    top: var(--space-2);
+    left: var(--space-2);
+    display: flex;
+    gap: var(--space-1);
+    z-index: 1;
+  }
+
+  .product-card-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product-card-meta {
+    margin-bottom: var(--space-1);
+    min-height: 1.2rem;
+  }
+
+  .product-card-weight {
+    color: var(--color-ink-faint);
+  }
+
+  .product-card-name {
+    font-family: var(--font-serif);
+    font-size: var(--text-lg);
+    font-weight: 400;
+    line-height: var(--leading-snug);
+    margin-bottom: var(--space-2);
+  }
+
+  .product-card-name a {
+    color: var(--color-ink);
+    transition: color var(--transition-base);
+  }
+
+  .product-card-name a:hover {
+    color: var(--color-accent);
+  }
+
+  .product-card-desc {
+    font-size: var(--text-sm);
+    color: var(--color-ink-muted);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-3);
+    flex: 1;
+    max-width: 36ch;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .product-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2);
+  }
+
+  .product-card-price {
+    font-family: var(--font-serif);
+    font-size: var(--text-lg);
+    color: var(--color-ink);
+    font-weight: 400;
+  }
+
+  .product-card-cta {
+    font-size: var(--text-xs);
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+    color: var(--color-ink-muted);
+    transition: color var(--transition-base);
+  }
+
+  .product-card-cta:hover {
+    color: var(--color-ink);
+  }
+
+  /* Compact variant */
+  .product-card--compact .product-card-desc {
+    display: none;
+  }
+</style>

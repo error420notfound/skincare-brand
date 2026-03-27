@@ -1,0 +1,304 @@
+---
+import Layout from '../components/layout/Layout.astro';
+import Divider from '../components/ui/Divider.astro';
+---
+
+<Layout
+  title="About"
+  description="Maison Clair was founded on a dissatisfaction with the language of skincare — a language of promises made faster than they can be tested."
+>
+  <div class="about-page">
+    <!-- Hero -->
+    <section class="about-hero">
+      <div class="about-hero-inner container container--xl">
+        <div class="about-hero-text">
+          <p class="t-eyebrow reveal">Maison Clair — Est. 2018</p>
+          <h1 class="about-hero-title reveal reveal--delay-1">
+            A considered<br />approach to skin.
+          </h1>
+        </div>
+        <div class="about-hero-image img-hover-wrap reveal reveal--delay-2">
+          <img
+            src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=1200&q=85"
+            alt="Our atelier in Lausanne"
+            width="1200"
+            height="700"
+            loading="eager"
+          />
+          <p class="about-hero-caption t-eyebrow">Lausanne Atelier, 2018</p>
+        </div>
+      </div>
+    </section>
+
+    <Divider variant="full" spacing="sm" />
+
+    <!-- Founding -->
+    <section class="about-section section" aria-label="Founding story">
+      <div class="container">
+        <div class="about-two-col">
+          <div class="about-two-col-left">
+            <p class="t-eyebrow reveal">Our Founding</p>
+          </div>
+          <div class="about-two-col-right">
+            <p class="about-large-text reveal">
+              Maison Clair began as a conversation between a cosmetic chemist and a dermatologist who had both grown tired of the same thing: the distance between what skincare claimed and what it could demonstrate.
+            </p>
+            <p class="about-body reveal reveal--delay-1">
+              In 2018, they established a small formulation atelier in Lausanne and began working through that question with the tools of actual science — clinical testing, peer-reviewed literature, and the kind of patient refinement that resists the pressure of a product launch calendar.
+            </p>
+            <p class="about-body reveal reveal--delay-2">
+              The first product took fourteen months to finalise. The second took eighteen. We have never apologised for this.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Full-bleed image -->
+    <div class="about-fullbleed img-hover-wrap reveal">
+      <img
+        src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=1600&q=85"
+        alt="The formulation process — measuring botanical extracts"
+        width="1600"
+        height="700"
+        loading="lazy"
+      />
+    </div>
+
+    <!-- Philosophy -->
+    <section class="about-section section" id="philosophy" aria-label="Philosophy">
+      <div class="container">
+        <div class="about-two-col">
+          <div class="about-two-col-left">
+            <p class="t-eyebrow reveal">Philosophy</p>
+          </div>
+          <div class="about-two-col-right">
+            <h2 class="about-subheading reveal">We do not believe that complexity is a virtue.</h2>
+            <p class="about-body reveal reveal--delay-1">
+              The proliferation of steps, products, and competing claims in the skincare industry has produced not better skin, but greater confusion. We offer a different proposition: fewer products, genuinely understood, properly tested, and made to last.
+            </p>
+            <p class="about-body reveal reveal--delay-2">
+              Each Maison Clair formulation is designed to do one thing well. The Lumière Serum restores luminosity. The Velours Cleanser cleanses without stripping. The Ombre Cream hydrates without heaviness. There is no ambiguity, and no padding.
+            </p>
+            <blockquote class="about-quote reveal reveal--delay-3">
+              "The most important thing a formula can do is exactly what it says it will."
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <Divider variant="full" spacing="sm" />
+
+    <!-- Ingredients -->
+    <section class="about-section section" id="ingredients" aria-label="Ingredients">
+      <div class="container">
+        <div class="about-two-col">
+          <div class="about-two-col-left">
+            <p class="t-eyebrow reveal">Ingredients</p>
+          </div>
+          <div class="about-two-col-right">
+            <h2 class="about-subheading reveal">We source with the same rigour we formulate with.</h2>
+            <p class="about-body reveal reveal--delay-1">
+              Every ingredient in a Maison Clair product has been selected for a documented reason. We do not include ingredients for their names. We do not add extracts to ingredient lists that cannot measurably influence the formula's performance.
+            </p>
+            <p class="about-body reveal reveal--delay-2">
+              Where we use rare or geographically specific materials — our Silver Fir from the Vosges, our Atlas Cedarwood from Morocco, our Koshihikari rice from Niigata — we maintain direct relationships with our suppliers and visit them. Not as a marketing exercise. Because understanding an ingredient means understanding where it comes from.
+            </p>
+
+            <div class="about-principles reveal reveal--delay-3">
+              {['No synthetic fragrance in facial formulas', 'No ingredient added for marketing value alone', 'All claims substantiated by clinical or in-vitro evidence', 'Full ingredient transparency — no proprietary blends', 'Biodegradable formulas where technically possible'].map((principle) => (
+                <div class="about-principle">
+                  <span class="principle-mark" aria-hidden="true">—</span>
+                  <span>{principle}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sustainability -->
+    <section class="about-section section about-section--alt" id="sustainability" aria-label="Sustainability">
+      <div class="container">
+        <div class="about-two-col">
+          <div class="about-two-col-left">
+            <p class="t-eyebrow reveal">Sustainability</p>
+          </div>
+          <div class="about-two-col-right">
+            <h2 class="about-subheading reveal">We document honestly. We do not claim resolution.</h2>
+            <p class="about-body reveal reveal--delay-1">
+              We are a luxury manufacturer, which means our environmental impact is real and not neutralised by the fact that we use glass packaging. We are working to reduce it. We are not there yet.
+            </p>
+            <p class="about-body reveal reveal--delay-2">
+              Current commitments: our formulas are biodegradable. Our glass is post-consumer recycled at a minimum of 40% cullet. Our outer packaging uses FSC-certified board and soy-based inks. Our shipping is carbon-offset through a programme we have independently verified.
+            </p>
+            <p class="about-body reveal reveal--delay-3">
+              We contribute 1% of revenue from products containing rare-sourced ingredients to verified conservation projects in the regions we source from. We publish the specifics of this allocation in our annual impact report.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .about-page {
+    padding-top: 4rem;
+  }
+
+  /* Hero */
+  .about-hero {
+    padding-block: var(--space-12);
+    background: var(--color-bg-alt);
+  }
+
+  .about-hero-inner {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: var(--space-10);
+    align-items: center;
+  }
+
+  .about-hero-text .t-eyebrow {
+    margin-bottom: var(--space-4);
+  }
+
+  .about-hero-title {
+    font-family: var(--font-serif);
+    font-size: var(--text-4xl);
+    font-weight: 300;
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tighter);
+  }
+
+  .about-hero-image {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-hero-image img {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+  }
+
+  .about-hero-caption {
+    position: absolute;
+    bottom: var(--space-3);
+    left: var(--space-3);
+    background: rgba(250, 248, 244, 0.88);
+    padding: 0.3rem 0.7rem;
+  }
+
+  /* Full-bleed */
+  .about-fullbleed {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .about-fullbleed img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    object-position: center 40%;
+  }
+
+  /* Two-col layout */
+  .about-two-col {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: var(--space-12);
+  }
+
+  .about-two-col-left .t-eyebrow {
+    position: sticky;
+    top: calc(4rem + var(--space-4));
+  }
+
+  .about-large-text {
+    font-family: var(--font-serif);
+    font-size: var(--text-2xl);
+    font-weight: 300;
+    line-height: var(--leading-snug);
+    color: var(--color-ink);
+    margin-bottom: var(--space-6);
+    max-width: 56ch;
+  }
+
+  .about-subheading {
+    font-family: var(--font-serif);
+    font-size: var(--text-xl);
+    font-weight: 400;
+    line-height: var(--leading-snug);
+    color: var(--color-ink);
+    margin-bottom: var(--space-5);
+    max-width: 48ch;
+  }
+
+  .about-body {
+    font-size: var(--text-md);
+    font-weight: 300;
+    color: var(--color-ink-muted);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-4);
+    max-width: 60ch;
+  }
+
+  .about-quote {
+    font-family: var(--font-serif);
+    font-size: var(--text-xl);
+    font-style: italic;
+    color: var(--color-accent);
+    padding-left: var(--space-4);
+    border-left: 2px solid var(--color-accent-pale);
+    margin-top: var(--space-6);
+    max-width: 50ch;
+  }
+
+  /* Principles */
+  .about-principles {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    margin-top: var(--space-6);
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .about-principle {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-3);
+    font-size: var(--text-sm);
+    font-weight: 300;
+    color: var(--color-ink-muted);
+    line-height: var(--leading-normal);
+  }
+
+  .principle-mark {
+    color: var(--color-accent);
+    flex-shrink: 0;
+  }
+
+  .about-section--alt {
+    background: var(--color-bg-alt);
+  }
+
+  @media (max-width: 900px) {
+    .about-hero-inner {
+      grid-template-columns: 1fr;
+    }
+
+    .about-two-col {
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+
+    .about-two-col-left .t-eyebrow {
+      position: static;
+    }
+  }
+</style>

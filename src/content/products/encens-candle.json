@@ -1,0 +1,30 @@
+{
+  "name": "Encens de Cèdre Candle",
+  "collection": "Home Fragrance",
+  "collectionSlug": "home-fragrance",
+  "price": 82,
+  "shortDesc": "A long-burning cedar and incense candle hand-poured into a reusable ceramic vessel, with a fragrance built around sustainably harvested Atlas cedar.",
+  "description": "We spent eight months selecting this ceramic vessel before we discussed the fragrance. A candle occupies a room—its vessel becomes part of that room's permanent character—and so the object had to justify its presence before we introduced the question of what it should smell like.\n\nThe vessel is cast in matte ceramic by a small studio in the Jura region, fired at low temperature to retain its earthy, porous quality. It is designed to be kept: refilled, repurposed, returned to us through our ceramic return programme.\n\nThe fragrance is built around Atlas cedarwood—the oldest continuously traded aromatic wood in recorded history. We layer it with frankincense resin, cold-pressed yuzu, and a base of vetiver from the Bourbon Islands. The result is contemplative without being solemn.",
+  "ingredients": [
+    { "name": "Atlas Cedarwood Essential Oil", "benefit": "Sustainably harvested from century-old Moroccan forests. Warm, dry, and slightly camphoraceous—considered the original luxury fragrance material." },
+    { "name": "Frankincense (Boswellia sacra)", "benefit": "Steam-distilled from wild-harvested Omani resin. The defining fragrance of contemplative spaces across cultures and centuries." },
+    { "name": "Cold-Pressed Yuzu", "benefit": "A single bright citrus note that cuts through the depth of the base and provides an initial freshness." },
+    { "name": "Bourbon Vetiver", "benefit": "Earth and wood in its most refined form, providing the deep, persistent base note that carries the fragrance over its 60-hour burn." }
+  ],
+  "usage": "Trim the wick to 5mm before each burn. Allow the candle to burn until the entire surface is liquid on the first use — this establishes the memory of the wax and prevents tunnelling. Do not burn for more than 4 hours at a time. Keep away from draughts. Never leave unattended.",
+  "benefits": [
+    "60–70 hour burn time",
+    "Natural soy-beeswax blend, no paraffin",
+    "Ceramic vessel designed for reuse",
+    "No synthetic fragrance materials"
+  ],
+  "images": [
+    "https://images.unsplash.com/photo-1602523961358-f9f03dd557db?w=800&q=85",
+    "https://images.unsplash.com/photo-1603905267407-2ded0b4e6b82?w=800&q=85",
+    "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=800&q=85"
+  ],
+  "inStock": true,
+  "featured": false,
+  "isNew": false,
+  "weight": "220g"
+}

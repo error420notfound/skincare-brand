@@ -1,0 +1,146 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  entry: CollectionEntry<'journal'>;
+  variant?: 'default' | 'featured';
+}
+
+const { entry, variant = 'default' } = Astro.props;
+const { title, date, category, excerpt, coverImage, readingTime } = entry.data;
+
+const formattedDate = new Intl.DateTimeFormat('en-GB', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+}).format(new Date(date));
+---
+
+<article class={`journal-card journal-card--${variant}`}>
+  <a href={`/journal/${entry.id}`} class="journal-card-image-link" tabindex="-1" aria-hidden="true">
+    <div class="journal-card-img img-hover-wrap">
+      <img
+        src={coverImage}
+        alt={title}
+        width={variant === 'featured' ? 1200 : 600}
+        height={variant === 'featured' ? 700 : 500}
+        loading="lazy"
+      />
+    </div>
+  </a>
+
+  <div class="journal-card-body">
+    <div class="journal-card-meta">
+      <span class="t-eyebrow">{category}</span>
+      <span class="journal-card-sep" aria-hidden="true">—</span>
+      <time class="t-eyebrow" datetime={entry.data.date.toISOString()}>{formattedDate}</time>
+      <span class="journal-card-sep" aria-hidden="true">—</span>
+      <span class="t-eyebrow">{readingTime} min read</span>
+    </div>
+
+    <h3 class="journal-card-title">
+      <a href={`/journal/${entry.id}`} class="link-underline">{title}</a>
+    </h3>
+
+    <p class="journal-card-excerpt">{excerpt}</p>
+
+    <a href={`/journal/${entry.id}`} class="journal-card-cta link-underline">Read →</a>
+  </div>
+</article>
+
+<style>
+  .journal-card {
+    display: grid;
+    gap: var(--space-4);
+  }
+
+  .journal-card--default {
+    grid-template-rows: auto 1fr;
+  }
+
+  .journal-card--featured {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: var(--space-8);
+  }
+
+  .journal-card-img {
+    aspect-ratio: 3/2;
+    overflow: hidden;
+    background: var(--color-bg-alt);
+  }
+
+  .journal-card--featured .journal-card-img {
+    aspect-ratio: 16/9;
+  }
+
+  .journal-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .journal-card-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-3);
+    flex-wrap: wrap;
+  }
+
+  .journal-card-sep {
+    color: var(--color-border);
+    font-size: var(--text-xs);
+  }
+
+  .journal-card-title {
+    font-family: var(--font-serif);
+    font-size: var(--text-xl);
+    font-weight: 400;
+    line-height: var(--leading-snug);
+    margin-bottom: var(--space-3);
+  }
+
+  .journal-card--featured .journal-card-title {
+    font-size: var(--text-2xl);
+  }
+
+  .journal-card-title a {
+    color: var(--color-ink);
+    transition: color var(--transition-base);
+  }
+
+  .journal-card-title a:hover {
+    color: var(--color-accent);
+  }
+
+  .journal-card-excerpt {
+    font-size: var(--text-sm);
+    color: var(--color-ink-muted);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-4);
+    max-width: 52ch;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .journal-card-cta {
+    font-size: var(--text-xs);
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+    color: var(--color-ink-muted);
+    transition: color var(--transition-base);
+  }
+
+  .journal-card-cta:hover {
+    color: var(--color-ink);
+  }
+
+  @media (max-width: 768px) {
+    .journal-card--featured {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

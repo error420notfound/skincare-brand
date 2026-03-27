@@ -1,0 +1,39 @@
+---
+interface Props {
+  variant?: 'full' | 'short' | 'accent';
+  spacing?: 'sm' | 'md' | 'lg';
+}
+
+const { variant = 'full', spacing = 'md' } = Astro.props;
+---
+
+<hr class={`divider divider--${variant} divider--space-${spacing}`} />
+
+<style>
+  .divider {
+    border: none;
+    display: block;
+  }
+
+  .divider--full {
+    height: 1px;
+    background: var(--color-border);
+    width: 100%;
+  }
+
+  .divider--short {
+    height: 1px;
+    background: var(--color-accent);
+    width: 3rem;
+  }
+
+  .divider--accent {
+    height: 2px;
+    background: var(--color-accent);
+    width: 100%;
+  }
+
+  .divider--space-sm { margin-block: var(--space-4); }
+  .divider--space-md { margin-block: var(--space-6); }
+  .divider--space-lg { margin-block: var(--space-8); }
+</style>

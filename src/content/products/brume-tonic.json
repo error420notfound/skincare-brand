@@ -1,0 +1,30 @@
+{
+  "name": "Brume Radiance Tonic",
+  "collection": "Facial Care",
+  "collectionSlug": "facial-care",
+  "price": 64,
+  "shortDesc": "A fine mist toner enriched with fermented rice water and kombucha culture that primes skin for treatment and sustains luminosity throughout the day.",
+  "description": "Inspired by the Japanese practice of rice water skincare — documented across centuries of formal beauty culture — the Brume Radiance Tonic is our considered interpretation. We begin with a fermented Koshihikari rice water base, using a 72-hour cold-fermentation process to maximise the concentration of inositol, ferulic acid, and amino acids.\n\nTo this, we add a living kombucha culture and cold-brewed green tea — both rich in bioavailable enzymes that clarify the pore environment and maintain the skin's optimal acidic pH.\n\nThe mist is applied with the eyes closed from a distance of 20 centimetres. There is a particular pleasure in this — a moment of suspension before the day begins.",
+  "ingredients": [
+    { "name": "Fermented Koshihikari Rice Water", "benefit": "72-hour cold-fermented for maximum inositol content, which studies associate with improved skin texture and barrier function." },
+    { "name": "Living Kombucha Culture", "benefit": "Rich in gluconic acid and enzymes that gently exfoliate the surface and maintain the skin's acidic mantle." },
+    { "name": "Cold-Brewed Gyokuro Green Tea", "benefit": "Shade-grown for weeks before harvest, this premium varietal contains the highest concentration of L-theanine and EGCG." },
+    { "name": "Ferulic Acid", "benefit": "Potentiates the effectiveness of antioxidants in the formula and provides its own UV-induced free radical protection." }
+  ],
+  "usage": "After cleansing, hold the bottle 20cm from the face with eyes closed. Mist evenly across the face and neck. Allow to settle for 30 seconds before pressing gently into the skin with clean palms. Follow with serum and moisturiser. May be used as a mid-day refresh over or under makeup.",
+  "benefits": [
+    "Refines pore appearance with consistent use",
+    "Maintains skin's optimal acidic pH",
+    "Suitable for all skin types including acne-prone",
+    "Free from synthetic fragrance and colourant"
+  ],
+  "images": [
+    "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=800&q=85",
+    "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=800&q=85",
+    "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=800&q=85"
+  ],
+  "inStock": true,
+  "featured": false,
+  "isNew": false,
+  "weight": "120ml"
+}

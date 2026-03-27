@@ -1,0 +1,43 @@
+---
+import Layout from '../components/layout/Layout.astro';
+import CartPage from '../components/cart/CartPage';
+---
+
+<Layout
+  title="Cart"
+  description="Review your selected items before proceeding to checkout."
+>
+  <div class="cart-page-wrapper">
+    <header class="cart-page-header container container--xl">
+      <h1 class="cart-page-title">Your Cart</h1>
+    </header>
+
+    <div class="container container--xl cart-page-content">
+      <CartPage client:load />
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .cart-page-wrapper {
+    padding-top: 4rem;
+    min-height: 80vh;
+  }
+
+  .cart-page-header {
+    padding-block: var(--space-10) var(--space-6);
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: var(--space-10);
+  }
+
+  .cart-page-title {
+    font-family: var(--font-serif);
+    font-size: var(--text-3xl);
+    font-weight: 300;
+    letter-spacing: var(--tracking-tighter);
+  }
+
+  .cart-page-content {
+    padding-bottom: var(--space-16);
+  }
+</style>

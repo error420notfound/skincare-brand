@@ -1,0 +1,31 @@
+{
+  "name": "Velours Cleansing Balm",
+  "collection": "Facial Care",
+  "collectionSlug": "facial-care",
+  "price": 88,
+  "shortDesc": "A rich balm-to-milk cleanser that dissolves impurities with unhurried ease, leaving the skin's barrier undisturbed.",
+  "description": "Cleansing should be an act of restoration, not depletion. The Velours Cleansing Balm begins as a dense, aromatic balm that melts on contact with warmth, emulsifying into a soft, pearlescent milk as water is introduced. It removes the day—sunscreen, pigment, environmental residue—without stripping the skin of its essential lipids.\n\nThe formula is anchored by cold-pressed mongongo oil, an ancient Zimbabwean ingredient prized for its extraordinary fatty acid profile and its ability to restore the skin's natural moisture barrier. Paired with calendula flower extract and white willow bark, it calms as it cleanses.\n\nThe ritual is as important as the result. We recommend the balm be massaged into dry skin with deliberate, unhurried movements for a full sixty seconds before emulsifying with water.",
+  "ingredients": [
+    { "name": "Cold-Pressed Mongongo Oil", "benefit": "Rich in eleostearic acid, this rare oil restores barrier function and deeply nourishes without clogging pores." },
+    { "name": "Calendula Flower Extract", "benefit": "Known for centuries as a healer of sensitised skin, calendula calms redness and supports the skin's innate immunity." },
+    { "name": "White Willow Bark", "benefit": "A natural source of salicin—the precursor to salicylic acid—that gently clarifies the pore and refines surface texture." },
+    { "name": "Oat Kernel Extract", "benefit": "Clinically studied for its ability to reduce transepidermal water loss and soothe irritated, reactive skin." }
+  ],
+  "usage": "Dispense a hazelnut-sized amount onto dry fingers. Massage across dry face in slow, circular motions for 60 seconds. Add lukewarm water to emulsify to a milk. Rinse thoroughly. Pat dry. For a deeper cleanse, use twice in succession on evenings.",
+  "benefits": [
+    "Dissolves all forms of makeup and SPF",
+    "Leaves no residue or tightness",
+    "Supports and reinforces the skin barrier",
+    "Appropriate for dry, normal, and sensitised skin"
+  ],
+  "images": [
+    "https://images.unsplash.com/photo-1629732051695-45f9f1b4d6e0?w=800&q=85",
+    "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=800&q=85",
+    "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=800&q=85",
+    "https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=800&q=85"
+  ],
+  "inStock": true,
+  "featured": true,
+  "isNew": false,
+  "weight": "100ml"
+}

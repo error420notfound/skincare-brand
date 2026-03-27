@@ -1,0 +1,100 @@
+---
+import { getCollection } from 'astro:content';
+import ProductCard from '../product/ProductCard.astro';
+
+const allProducts = await getCollection('products');
+const featured = allProducts.filter(p => p.data.featured).slice(0, 3);
+---
+
+<section class="highlights section">
+  <div class="container">
+    <header class="highlights-header">
+      <div class="highlights-header-left">
+        <p class="t-eyebrow reveal">Selected Works</p>
+        <h2 class="highlights-title reveal reveal--delay-1">Formulations<br /><em>worth knowing.</em></h2>
+      </div>
+      <div class="highlights-header-right reveal reveal--delay-2">
+        <p class="highlights-intro">
+          Each product below represents a considered answer to a specific question about skin. They are not a range. They are individual positions.
+        </p>
+        <a href="/collections/facial-care" class="link-underline">View all products</a>
+      </div>
+    </header>
+
+    <div class="highlights-grid">
+      {featured.map((product, i) => (
+        <div class={`reveal reveal--delay-${i + 1}`}>
+          <ProductCard product={product} index={i} />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .highlights-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+    align-items: end;
+    margin-bottom: var(--space-10);
+  }
+
+  .highlights-title {
+    font-family: var(--font-serif);
+    font-size: var(--text-3xl);
+    font-weight: 300;
+    line-height: var(--leading-snug);
+    margin-top: var(--space-3);
+  }
+
+  .highlights-title em {
+    font-style: italic;
+    color: var(--color-accent);
+  }
+
+  .highlights-header-right {
+    padding-bottom: 0.25rem;
+  }
+
+  .highlights-intro {
+    font-size: var(--text-sm);
+    color: var(--color-ink-muted);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-4);
+    max-width: 48ch;
+  }
+
+  .highlights-intro + a {
+    font-size: var(--text-xs);
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+    color: var(--color-ink-muted);
+    transition: color var(--transition-base);
+  }
+
+  .highlights-intro + a:hover {
+    color: var(--color-ink);
+  }
+
+  .highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-4);
+  }
+
+  @media (max-width: 900px) {
+    .highlights-header {
+      grid-template-columns: 1fr;
+    }
+    .highlights-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .highlights-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

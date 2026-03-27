@@ -1,0 +1,62 @@
+---
+import Layout from '../../components/layout/Layout.astro';
+import JournalGrid from '../../components/journal/JournalGrid.astro';
+---
+
+<Layout
+  title="Journal"
+  description="Field notes on ingredients, formulation practice, and the skin. A record of what we have learned and continue to learn."
+>
+  <div class="journal-page">
+    <header class="journal-page-header">
+      <div class="container">
+        <p class="t-eyebrow reveal">Field Notes</p>
+        <h1 class="journal-page-title reveal reveal--delay-1">
+          On ingredients, practice,<br /><em>and the skin.</em>
+        </h1>
+        <p class="journal-page-desc reveal reveal--delay-2">
+          A record of what we are learning — about botanical sourcing, fermentation science, and the philosophy of considered skincare.
+        </p>
+      </div>
+    </header>
+
+    <JournalGrid />
+  </div>
+</Layout>
+
+<style>
+  .journal-page {
+    padding-top: 4rem;
+  }
+
+  .journal-page-header {
+    padding-block: var(--space-12) var(--space-6);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .journal-page-header .t-eyebrow {
+    margin-bottom: var(--space-3);
+  }
+
+  .journal-page-title {
+    font-family: var(--font-serif);
+    font-size: var(--text-4xl);
+    font-weight: 300;
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tighter);
+    margin-bottom: var(--space-4);
+  }
+
+  .journal-page-title em {
+    font-style: italic;
+    color: var(--color-accent);
+  }
+
+  .journal-page-desc {
+    font-size: var(--text-md);
+    font-weight: 300;
+    color: var(--color-ink-muted);
+    line-height: var(--leading-relaxed);
+    max-width: 60ch;
+  }
+</style>

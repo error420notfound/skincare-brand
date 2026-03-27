@@ -1,0 +1,30 @@
+{
+  "name": "Corps Botanical Elixir",
+  "collection": "Body Rituals",
+  "collectionSlug": "body-rituals",
+  "price": 112,
+  "shortDesc": "A dry body oil of exceptional lightness that absorbs without trace, enriching the skin with a blend of seven cold-pressed botanical oils.",
+  "description": "The Corps Botanical Elixir was born from a simple observation: most body oils leave either a greasy film or a synthetic finish. We wanted neither. We wanted the experience of skin made quietly, imperceptibly better—richer in tone, smoother in texture, with a natural warmth that comes not from fragrance, but from the oils themselves.\n\nSeven cold-pressed oils are combined in precise proportion: rosehip for its trans-retinoic acid content, sea buckthorn for its extraordinary concentration of carotenoids, marula for its oleic acid-rich profile, and four others chosen for their complementary actions. The result is a blend that works synergistically rather than cumulatively.\n\nApply after bathing. The oils seal in residual moisture most effectively when the skin is still warm.",
+  "ingredients": [
+    { "name": "Rosehip Seed Oil", "benefit": "A natural source of trans-retinoic acid and essential fatty acids that improve skin elasticity and fade discolouration." },
+    { "name": "Sea Buckthorn Oil", "benefit": "Extraordinary in its carotenoid content, this oil imparts a golden luminosity and powerful antioxidant protection." },
+    { "name": "Marula Oil", "benefit": "Lightweight and non-comedogenic, marula is prized for its exceptional affinity with human sebum." },
+    { "name": "Neroli Essential Oil", "benefit": "Derived from the blossom of the bitter orange, neroli promotes skin cell regeneration and imparts a delicate, refined scent." }
+  ],
+  "usage": "Apply 4–6 drops to warm, damp skin following bathing. Begin at the ankles, drawing upward with long strokes toward the heart. Allow 2–3 minutes to absorb fully before dressing. Use morning or evening.",
+  "benefits": [
+    "Absorbs fully within minutes with no residue",
+    "Visibly improves skin tone and texture with consistent use",
+    "A seven-oil complex chosen for synergy, not quantity",
+    "Subtle neroli and bergamot natural fragrance"
+  ],
+  "images": [
+    "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=800&q=85",
+    "https://images.unsplash.com/photo-1600428877878-1a0fd85beda7?w=800&q=85",
+    "https://images.unsplash.com/photo-1607006344380-b6775a0824a7?w=800&q=85"
+  ],
+  "inStock": true,
+  "featured": false,
+  "isNew": true,
+  "weight": "100ml"
+}

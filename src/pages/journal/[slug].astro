@@ -1,0 +1,317 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../components/layout/Layout.astro';
+import Divider from '../../components/ui/Divider.astro';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('journal');
+  return entries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const { title, date, category, excerpt, coverImage, readingTime } = entry.data;
+
+const formattedDate = new Intl.DateTimeFormat('en-GB', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+}).format(new Date(date));
+
+// Get other entries for related
+const allEntries = await getCollection('journal');
+const related = allEntries.filter((e) => e.id !== entry.id).slice(0, 2);
+---
+
+<Layout title={title} description={excerpt}>
+  <article class="journal-post">
+    <!-- Hero -->
+    <header class="post-header">
+      <div class="container container--md">
+        <nav class="post-breadcrumb" aria-label="Breadcrumb">
+          <a href="/journal" class="link-underline">← Field Notes</a>
+        </nav>
+        <div class="post-meta">
+          <span class="t-eyebrow">{category}</span>
+          <span class="post-meta-sep" aria-hidden="true">—</span>
+          <time class="t-eyebrow" datetime={entry.data.date.toISOString()}>{formattedDate}</time>
+          <span class="post-meta-sep" aria-hidden="true">—</span>
+          <span class="t-eyebrow">{readingTime} min read</span>
+        </div>
+        <h1 class="post-title reveal">{title}</h1>
+        <p class="post-excerpt reveal reveal--delay-1">{excerpt}</p>
+      </div>
+    </header>
+
+    <!-- Cover image -->
+    <div class="post-cover reveal">
+      <img
+        src={coverImage}
+        alt={title}
+        width="1400"
+        height="700"
+        loading="eager"
+      />
+    </div>
+
+    <!-- Body -->
+    <div class="container container--sm">
+      <div class="post-body prose">
+        <Content />
+      </div>
+
+      <Divider variant="full" spacing="lg" />
+
+      <!-- Author note -->
+      <footer class="post-footer reveal">
+        <p class="post-footer-label t-eyebrow">Written by</p>
+        <p class="post-footer-author">The Maison Clair Formulation Team</p>
+        <p class="post-footer-note">
+          Questions about this piece may be directed to our team. We endeavour to respond with the same care we give to our formulations.
+        </p>
+      </footer>
+    </div>
+
+    <!-- Related -->
+    {related.length > 0 && (
+      <section class="post-related">
+        <div class="container">
+          <Divider variant="full" spacing="sm" />
+          <h2 class="post-related-title reveal">Further Reading</h2>
+          <div class="post-related-grid">
+            {related.map((rel, i) => {
+              const relDate = new Intl.DateTimeFormat('en-GB', {
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric',
+              }).format(new Date(rel.data.date));
+              return (
+                <article class={`post-related-item reveal reveal--delay-${i + 1}`}>
+                  <a href={`/journal/${rel.id}`} class="post-related-img-link">
+                    <div class="post-related-img img-hover-wrap">
+                      <img src={rel.data.coverImage} alt={rel.data.title} width={600} height={400} loading="lazy" />
+                    </div>
+                  </a>
+                  <div class="post-related-meta">
+                    <span class="t-eyebrow">{rel.data.category}</span>
+                    <span class="t-eyebrow" style="color: var(--color-border)">—</span>
+                    <time class="t-eyebrow">{relDate}</time>
+                  </div>
+                  <h3 class="post-related-item-title">
+                    <a href={`/journal/${rel.id}`} class="link-underline">{rel.data.title}</a>
+                  </h3>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+    )}
+  </article>
+</Layout>
+
+<style>
+  .journal-post {
+    padding-top: 4rem;
+  }
+
+  /* Header */
+  .post-header {
+    padding-block: var(--space-10) var(--space-8);
+  }
+
+  .post-breadcrumb {
+    margin-bottom: var(--space-6);
+    font-size: var(--text-xs);
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+    color: var(--color-ink-muted);
+    transition: color var(--transition-base);
+  }
+
+  .post-breadcrumb:hover {
+    color: var(--color-ink);
+  }
+
+  .post-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-5);
+    flex-wrap: wrap;
+  }
+
+  .post-meta-sep {
+    color: var(--color-border);
+    font-size: var(--text-xs);
+  }
+
+  .post-title {
+    font-family: var(--font-serif);
+    font-size: var(--text-4xl);
+    font-weight: 300;
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tighter);
+    margin-bottom: var(--space-5);
+  }
+
+  .post-excerpt {
+    font-family: var(--font-serif);
+    font-size: var(--text-xl);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--color-ink-muted);
+    line-height: var(--leading-snug);
+    max-width: 56ch;
+  }
+
+  /* Cover */
+  .post-cover {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: var(--space-12);
+  }
+
+  .post-cover img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+  }
+
+  /* Body prose */
+  .post-body.prose {
+    padding-block: var(--space-4);
+  }
+
+  .prose :global(h2) {
+    font-family: var(--font-serif);
+    font-size: var(--text-2xl);
+    font-weight: 400;
+    color: var(--color-ink);
+    margin-top: var(--space-10);
+    margin-bottom: var(--space-4);
+    letter-spacing: var(--tracking-tight);
+  }
+
+  .prose :global(p) {
+    font-size: var(--text-md);
+    font-weight: 300;
+    color: var(--color-ink-muted);
+    line-height: var(--leading-loose);
+    margin-bottom: var(--space-5);
+    max-width: 64ch;
+  }
+
+  .prose :global(ul), .prose :global(ol) {
+    padding-left: var(--space-4);
+    margin-bottom: var(--space-5);
+  }
+
+  .prose :global(li) {
+    font-size: var(--text-md);
+    font-weight: 300;
+    color: var(--color-ink-muted);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-2);
+    list-style: disc;
+  }
+
+  .prose :global(em) {
+    font-style: italic;
+    color: var(--color-ink);
+  }
+
+  .prose :global(strong) {
+    font-weight: 500;
+    color: var(--color-ink);
+  }
+
+  /* Footer */
+  .post-footer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    padding-bottom: var(--space-12);
+  }
+
+  .post-footer-label {
+    margin-bottom: var(--space-1);
+  }
+
+  .post-footer-author {
+    font-family: var(--font-serif);
+    font-size: var(--text-lg);
+    color: var(--color-ink);
+    margin-bottom: var(--space-2);
+  }
+
+  .post-footer-note {
+    font-size: var(--text-sm);
+    color: var(--color-ink-muted);
+    max-width: 52ch;
+  }
+
+  /* Related */
+  .post-related {
+    padding-block: var(--space-8) var(--space-16);
+  }
+
+  .post-related-title {
+    font-family: var(--font-serif);
+    font-size: var(--text-xl);
+    font-weight: 400;
+    margin-block: var(--space-8) var(--space-8);
+  }
+
+  .post-related-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+  }
+
+  .post-related-img {
+    aspect-ratio: 3/2;
+    overflow: hidden;
+    background: var(--color-bg-alt);
+    margin-bottom: var(--space-3);
+  }
+
+  .post-related-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .post-related-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-2);
+  }
+
+  .post-related-item-title {
+    font-family: var(--font-serif);
+    font-size: var(--text-lg);
+    font-weight: 400;
+    line-height: var(--leading-snug);
+  }
+
+  .post-related-item-title a {
+    color: var(--color-ink);
+    text-decoration: none;
+    transition: color var(--transition-base);
+  }
+
+  .post-related-item-title a:hover {
+    color: var(--color-accent);
+  }
+
+  @media (max-width: 640px) {
+    .post-related-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

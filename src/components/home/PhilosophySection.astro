@@ -1,0 +1,129 @@
+---
+---
+
+<section class="philosophy section--lg" aria-label="Brand philosophy">
+  <div class="philosophy-inner">
+    <!-- Full-bleed image -->
+    <div class="philosophy-image img-hover-wrap reveal">
+      <img
+        src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1400&q=85"
+        alt="Aerial view of Atlas mountains — where our cedarwood is sourced"
+        width="1400"
+        height="800"
+        loading="lazy"
+      />
+      <div class="philosophy-image-caption">
+        <span class="t-eyebrow">Haut Atlas, Morocco — source of our cedarwood</span>
+      </div>
+    </div>
+
+    <!-- Text block -->
+    <div class="container">
+      <div class="philosophy-text">
+        <div class="philosophy-left reveal">
+          <p class="t-eyebrow">Our Philosophy</p>
+        </div>
+        <div class="philosophy-right">
+          <blockquote class="philosophy-quote reveal reveal--delay-1">
+            "We do not believe that complexity is a virtue. We believe that a single, properly formulated product — one that has been tested, refined, and genuinely understood — is worth more than ten that have not."
+          </blockquote>
+          <p class="philosophy-body reveal reveal--delay-2">
+            Maison Clair was founded on a dissatisfaction with the language of skincare — a language of promises made faster than they can be tested, of ingredients celebrated for their novelty rather than their documented effect. We set out to make fewer things, and to make them properly.
+          </p>
+          <p class="philosophy-body reveal reveal--delay-3">
+            Each formulation begins with a question: what does the skin actually need here, and what is the most direct and honest way to provide it? We do not add ingredients for their marketing value. We do not reformulate to create an excuse for a new campaign. We iterate slowly, with rigour, and we release a product only when it has earned the shelf.
+          </p>
+          <a href="/about" class="btn btn--secondary reveal reveal--delay-4">Read Our Story</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .philosophy {
+    background: var(--color-bg-alt);
+    padding-block: 0;
+  }
+
+  .philosophy-inner {
+    padding-block: var(--space-16);
+  }
+
+  .philosophy-image {
+    width: 100%;
+    max-height: 520px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: var(--space-16);
+  }
+
+  .philosophy-image img {
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+    object-position: center 60%;
+  }
+
+  .philosophy-image-caption {
+    position: absolute;
+    bottom: var(--space-3);
+    right: var(--space-4);
+    background: rgba(250, 248, 244, 0.88);
+    padding: 0.4rem 0.8rem;
+  }
+
+  .philosophy-text {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: var(--space-12);
+    align-items: start;
+    max-width: var(--container-lg);
+  }
+
+  .philosophy-left .t-eyebrow {
+    position: sticky;
+    top: var(--space-8);
+  }
+
+  .philosophy-quote {
+    font-family: var(--font-serif);
+    font-size: var(--text-2xl);
+    font-weight: 300;
+    font-style: italic;
+    line-height: var(--leading-snug);
+    color: var(--color-ink);
+    border-left: 2px solid var(--color-accent);
+    padding-left: var(--space-4);
+    margin-bottom: var(--space-6);
+    max-width: 52ch;
+  }
+
+  .philosophy-body {
+    font-size: var(--text-md);
+    font-weight: 300;
+    line-height: var(--leading-relaxed);
+    color: var(--color-ink-muted);
+    margin-bottom: var(--space-4);
+    max-width: 58ch;
+  }
+
+  .philosophy-body:last-of-type {
+    margin-bottom: var(--space-8);
+  }
+
+  @media (max-width: 768px) {
+    .philosophy-text {
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+    }
+
+    .philosophy-left .t-eyebrow {
+      position: static;
+    }
+
+    .philosophy-quote {
+      font-size: var(--text-xl);
+    }
+  }
+</style>

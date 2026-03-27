@@ -1,0 +1,317 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../components/layout/Layout.astro';
+import ImageGallery from '../../components/product/ImageGallery';
+import AddToCart from '../../components/product/AddToCart';
+import Divider from '../../components/ui/Divider.astro';
+
+export async function getStaticPaths() {
+  const products = await getCollection('products');
+  return products.map((product) => ({
+    params: { slug: product.id },
+    props: { product },
+  }));
+}
+
+const { product } = Astro.props;
+const { name, collection, collectionSlug, price, description, shortDesc, ingredients, usage, benefits, images, inStock, weight } = product.data;
+---
+
+<Layout title={name} description={shortDesc}>
+  <div class="pdp">
+    <!-- Breadcrumb -->
+    <nav class="pdp-breadcrumb container container--xl" aria-label="Breadcrumb">
+      <ol class="breadcrumb-list">
+        <li><a href="/">Home</a></li>
+        <li aria-hidden="true">/</li>
+        <li><a href={`/collections/${collectionSlug}`}>{collection}</a></li>
+        <li aria-hidden="true">/</li>
+        <li aria-current="page">{name}</li>
+      </ol>
+    </nav>
+
+    <!-- Main product layout -->
+    <div class="pdp-main container container--xl">
+      <!-- Gallery -->
+      <div class="pdp-gallery reveal">
+        <ImageGallery images={images} productName={name} client:load />
+      </div>
+
+      <!-- Info panel -->
+      <div class="pdp-info">
+        <div class="pdp-info-sticky">
+          <header class="pdp-header">
+            <p class="t-eyebrow reveal">{collection}</p>
+            <h1 class="pdp-title reveal reveal--delay-1">{name}</h1>
+            {weight && <p class="pdp-weight t-eyebrow reveal reveal--delay-1">{weight}</p>}
+            <p class="pdp-price reveal reveal--delay-2">€{price}</p>
+          </header>
+
+          <p class="pdp-short-desc reveal reveal--delay-2">{shortDesc}</p>
+
+          <div class="reveal reveal--delay-3">
+            <AddToCart
+              productId={product.id}
+              productName={name}
+              price={price}
+              image={images[0]}
+              weight={weight}
+              inStock={inStock}
+              client:load
+            />
+          </div>
+
+          <!-- Benefits -->
+          <div class="pdp-benefits reveal reveal--delay-4">
+            <ul class="benefits-list">
+              {benefits.map((b) => (
+                <li class="benefit-item">
+                  <span class="benefit-dot" aria-hidden="true">—</span>
+                  {b}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Extended content -->
+    <div class="pdp-extended container container--xl">
+      <Divider variant="full" spacing="lg" />
+
+      <div class="pdp-tabs">
+        <!-- Description -->
+        <section class="pdp-section reveal" id="description">
+          <h2 class="pdp-section-title">About This Formulation</h2>
+          <div class="pdp-description">
+            {description.split('\n\n').map((para) => (
+              <p>{para}</p>
+            ))}
+          </div>
+        </section>
+
+        <Divider variant="full" spacing="lg" />
+
+        <!-- Ingredients -->
+        <section class="pdp-section reveal" id="ingredients">
+          <h2 class="pdp-section-title">Key Ingredients</h2>
+          <dl class="ingredients-list">
+            {ingredients.map((ing) => (
+              <div class="ingredient-item">
+                <dt class="ingredient-name">{ing.name}</dt>
+                <dd class="ingredient-benefit">{ing.benefit}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+
+        <Divider variant="full" spacing="lg" />
+
+        <!-- Usage -->
+        <section class="pdp-section reveal" id="usage">
+          <h2 class="pdp-section-title">How to Use</h2>
+          <p class="pdp-usage">{usage}</p>
+        </section>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .pdp {
+    padding-top: 4rem; /* header */
+  }
+
+  /* Breadcrumb */
+  .pdp-breadcrumb {
+    padding-top: var(--space-4);
+    padding-bottom: var(--space-2);
+  }
+
+  .breadcrumb-list {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+  }
+
+  .breadcrumb-list li {
+    font-size: var(--text-xs);
+    letter-spacing: 0.04em;
+    color: var(--color-ink-faint);
+  }
+
+  .breadcrumb-list a {
+    color: var(--color-ink-muted);
+    transition: color var(--transition-base);
+  }
+
+  .breadcrumb-list a:hover {
+    color: var(--color-ink);
+  }
+
+  .breadcrumb-list [aria-current="page"] {
+    color: var(--color-ink);
+  }
+
+  /* Main grid */
+  .pdp-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+    align-items: start;
+    padding-block: var(--space-8);
+  }
+
+  /* Gallery */
+  .pdp-gallery {
+    position: sticky;
+    top: calc(4rem + var(--space-4));
+  }
+
+  /* Info */
+  .pdp-info-sticky {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .pdp-header .t-eyebrow {
+    margin-bottom: var(--space-2);
+  }
+
+  .pdp-title {
+    font-family: var(--font-serif);
+    font-size: var(--text-3xl);
+    font-weight: 400;
+    line-height: var(--leading-snug);
+    margin-bottom: var(--space-1);
+  }
+
+  .pdp-weight {
+    color: var(--color-ink-faint);
+    margin-bottom: var(--space-2);
+  }
+
+  .pdp-price {
+    font-family: var(--font-serif);
+    font-size: var(--text-2xl);
+    color: var(--color-ink);
+    font-weight: 400;
+  }
+
+  .pdp-short-desc {
+    font-size: var(--text-md);
+    font-weight: 300;
+    color: var(--color-ink-muted);
+    line-height: var(--leading-relaxed);
+    border-left: 2px solid var(--color-accent-pale);
+    padding-left: var(--space-3);
+  }
+
+  .benefits-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--space-4);
+  }
+
+  .benefit-item {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    color: var(--color-ink-muted);
+    line-height: var(--leading-normal);
+  }
+
+  .benefit-dot {
+    color: var(--color-accent);
+    flex-shrink: 0;
+  }
+
+  /* Extended sections */
+  .pdp-extended {
+    padding-bottom: var(--space-16);
+  }
+
+  .pdp-tabs {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .pdp-section {
+    max-width: 72ch;
+  }
+
+  .pdp-section-title {
+    font-family: var(--font-serif);
+    font-size: var(--text-xl);
+    font-weight: 400;
+    margin-bottom: var(--space-6);
+    color: var(--color-ink);
+  }
+
+  .pdp-description p {
+    font-size: var(--text-md);
+    font-weight: 300;
+    line-height: var(--leading-loose);
+    color: var(--color-ink-muted);
+    margin-bottom: var(--space-4);
+  }
+
+  .pdp-description p:last-child {
+    margin-bottom: 0;
+  }
+
+  .ingredients-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .ingredient-item {
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .ingredient-item:last-child {
+    border-bottom: none;
+  }
+
+  .ingredient-name {
+    font-family: var(--font-serif);
+    font-size: var(--text-md);
+    font-weight: 400;
+    color: var(--color-ink);
+    margin-bottom: var(--space-1);
+  }
+
+  .ingredient-benefit {
+    font-size: var(--text-sm);
+    font-weight: 300;
+    color: var(--color-ink-muted);
+    line-height: var(--leading-relaxed);
+  }
+
+  .pdp-usage {
+    font-size: var(--text-md);
+    font-weight: 300;
+    line-height: var(--leading-loose);
+    color: var(--color-ink-muted);
+  }
+
+  @media (max-width: 900px) {
+    .pdp-main {
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+    }
+
+    .pdp-gallery {
+      position: static;
+    }
+  }
+</style>

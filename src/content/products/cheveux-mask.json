@@ -1,0 +1,30 @@
+{
+  "name": "Cheveux Restorative Mask",
+  "collection": "Hair Care",
+  "collectionSlug": "hair-care",
+  "price": 76,
+  "shortDesc": "A weekly intensive treatment that reverses protein loss in damaged hair, leaving it with the weight, movement, and shine of its original state.",
+  "description": "Developed with a trichologist at the University of Zurich, the Cheveux Restorative Mask addresses hair damage at the cortical level—the fibrous protein structure that gives hair its strength, elasticity, and light-reflective quality.\n\nThe formula is anchored by a hydrolysed keratin complex of low molecular weight, capable of penetrating the cortex rather than merely coating the cuticle. To this, we add cold-pressed abyssinian oil—a rare oleic-eruic acid blend that imparts flexibility without weight—and a biofermented soy extract that reinforces the hair's hydrogen bond structure.\n\nThe result is not the false, waxy shine of silicone-heavy treatments. It is the genuine lustre of hair that is structurally well.",
+  "ingredients": [
+    { "name": "Low-MW Hydrolysed Keratin", "benefit": "Small molecular fragments that penetrate the hair cortex to replace lost protein and restore tensile strength." },
+    { "name": "Cold-Pressed Abyssinian Oil", "benefit": "With the highest erucic acid content of any plant oil, abyssinian provides exceptional slip and flexibility without silicone heaviness." },
+    { "name": "Biofermented Soy Protein", "benefit": "72-hour fermentation unlocks amino acids that selectively reinforce weakened areas of the hair shaft." },
+    { "name": "Panthenol", "benefit": "Provitamin B5 that humectifies from within the hair structure, increasing diameter and reducing breakage." }
+  ],
+  "usage": "After shampooing, gently press excess water from hair. Apply a generous amount from mid-length to ends, avoiding the scalp. Comb through with a wide-toothed comb to ensure even distribution. Leave for 10–20 minutes (longer for severely damaged hair). Rinse thoroughly with cool water to seal the cuticle. Use once weekly.",
+  "benefits": [
+    "Measurable reduction in breakage after 3 uses",
+    "Silicone-free formula that does not create build-up",
+    "Suitable for colour-treated and chemically processed hair",
+    "Fragrance from certified-natural essential oils only"
+  ],
+  "images": [
+    "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=800&q=85",
+    "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&q=85",
+    "https://images.unsplash.com/photo-1629732051695-45f9f1b4d6e0?w=800&q=85"
+  ],
+  "inStock": true,
+  "featured": false,
+  "isNew": true,
+  "weight": "200ml"
+}

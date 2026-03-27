@@ -1,0 +1,30 @@
+{
+  "name": "Ombre Moisture Cream",
+  "collection": "Facial Care",
+  "collectionSlug": "facial-care",
+  "price": 98,
+  "shortDesc": "A weightless yet deeply hydrating moisturiser with a soft-focus texture that balances oil production and sustains moisture through the day.",
+  "description": "Formulated for what the French call 'peau mixte' — the complicated skin that is oily in places, dry in others, and refuses the categories we try to impose on it — the Ombre Moisture Cream is our answer to the single moisturiser that does not compromise.\n\nThe texture is unusual: it applies as a rich cream and melts to an almost weightless finish within thirty seconds of application. This transformation is achieved through a network of intelligent moisture spheres that release hydration over twelve hours, responding to the skin's own fluctuating needs rather than delivering a fixed dose.\n\nWorn alone, it creates a natural, skin-like finish. Beneath makeup, it allows pigments to sit without settling.",
+  "ingredients": [
+    { "name": "Time-Release Hyaluronic Microspheres", "benefit": "Intelligent moisture delivery system that releases hydration in response to transepidermal water loss over 12 hours." },
+    { "name": "Ceramide Complex", "benefit": "A blend of ceramides 1, 3, and 6-II that mirrors the skin's natural barrier lipid ratio, reinforcing and repairing structural integrity." },
+    { "name": "Squalane", "benefit": "Derived from sugarcane and structurally identical to the squalene produced by human sebaceous glands. Balances without heaviness." },
+    { "name": "Allantoin", "benefit": "A keratinolytic compound derived from comfrey root that softens skin cells and encourages natural exfoliation." }
+  ],
+  "usage": "Apply a pea-sized amount to the face and neck following serum application. Begin at the centre of the face, working outward with gentle upward strokes. Allow 60 seconds before applying SPF or makeup. For drier skin or colder climates, a slightly larger amount may be applied.",
+  "benefits": [
+    "Balances combination skin without compromising dry areas",
+    "12-hour intelligent moisture release",
+    "Provides an ideal canvas for makeup application",
+    "Fragrance-free, tested on sensitised skin"
+  ],
+  "images": [
+    "https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=800&q=85",
+    "https://images.unsplash.com/photo-1570194065650-d99fb4bedf0a?w=800&q=85",
+    "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=800&q=85"
+  ],
+  "inStock": true,
+  "featured": true,
+  "isNew": false,
+  "weight": "50ml"
+}

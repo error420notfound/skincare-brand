@@ -1,0 +1,109 @@
+---
+import { getCollection } from 'astro:content';
+import JournalCard from './JournalCard.astro';
+
+interface Props {
+  preview?: boolean;
+}
+
+const { preview = false } = Astro.props;
+
+const allEntries = await getCollection('journal');
+const sorted = allEntries.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const entries = preview ? sorted.slice(0, 3) : sorted;
+const [featured, ...rest] = entries;
+---
+
+<section class="journal-section section" aria-label="Journal entries">
+  <div class="container">
+    <header class="journal-section-header">
+      <div>
+        <p class="t-eyebrow reveal">Field Notes</p>
+        <h2 class="journal-section-title reveal reveal--delay-1">
+          On ingredients,<br /><em>practice, and the skin.</em>
+        </h2>
+      </div>
+      {preview && (
+        <a href="/journal" class="link-underline reveal reveal--delay-2">All entries</a>
+      )}
+    </header>
+
+    {featured && (
+      <div class="journal-featured reveal">
+        <JournalCard entry={featured} variant="featured" />
+      </div>
+    )}
+
+    {rest.length > 0 && (
+      <div class="journal-grid">
+        {rest.map((entry, i) => (
+          <div class={`reveal reveal--delay-${i + 1}`}>
+            <JournalCard entry={entry} />
+          </div>
+        ))}
+      </div>
+    )}
+  </div>
+</section>
+
+<style>
+  .journal-section-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: var(--space-10);
+    gap: var(--space-4);
+  }
+
+  .journal-section-title {
+    font-family: var(--font-serif);
+    font-size: var(--text-3xl);
+    font-weight: 300;
+    line-height: var(--leading-snug);
+    margin-top: var(--space-3);
+  }
+
+  .journal-section-title em {
+    font-style: italic;
+    color: var(--color-accent);
+  }
+
+  .journal-section-header > a {
+    font-size: var(--text-xs);
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+    color: var(--color-ink-muted);
+    white-space: nowrap;
+    align-self: flex-end;
+    padding-bottom: 0.2rem;
+    transition: color var(--transition-base);
+  }
+
+  .journal-section-header > a:hover {
+    color: var(--color-ink);
+  }
+
+  .journal-featured {
+    margin-bottom: var(--space-10);
+    padding-bottom: var(--space-10);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .journal-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+
+  @media (max-width: 900px) {
+    .journal-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .journal-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,260 @@
+---
+---
+
+<section class="hero" aria-label="Brand hero">
+  <div class="hero-grid">
+    <!-- Left: editorial text block -->
+    <div class="hero-text">
+      <p class="hero-eyebrow t-eyebrow reveal">New Season Collection</p>
+      <h1 class="hero-headline reveal reveal--delay-1">
+        Skin, in<br />its most<br /><em>considered</em><br />state.
+      </h1>
+      <p class="hero-body reveal reveal--delay-2">
+        Maison Clair formulates each product as a singular object: precise, purposeful, and built to last. No superfluous steps. No empty promises.
+      </p>
+      <div class="hero-actions reveal reveal--delay-3">
+        <a href="/collections/facial-care" class="btn btn--primary btn--lg">Explore Collections</a>
+        <a href="/about" class="hero-about-link link-underline">Our Philosophy</a>
+      </div>
+    </div>
+
+    <!-- Right: image composition -->
+    <div class="hero-visual">
+      <div class="hero-img-primary img-hover-wrap reveal reveal--delay-1">
+        <img
+          src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=900&q=85"
+          alt="Lumière Renewing Serum — a translucent dropper bottle against pale stone"
+          width="900"
+          height="1100"
+          loading="eager"
+          fetchpriority="high"
+        />
+      </div>
+      <div class="hero-img-secondary img-hover-wrap reveal reveal--delay-2">
+        <img
+          src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=500&q=85"
+          alt="Skincare arrangement on marble surface"
+          width="500"
+          height="600"
+          loading="eager"
+        />
+      </div>
+      <div class="hero-annotation reveal reveal--delay-4">
+        <span class="t-eyebrow">Featured</span>
+        <a href="/products/lumiere-serum" class="hero-annotation-link">
+          Lumière Renewing Serum<br />
+          <span>€145</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="hero-scroll" aria-hidden="true">
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    min-height: 100svh;
+    padding-top: 4rem; /* header height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+    align-items: center;
+    padding-inline: var(--container-pad);
+    max-width: var(--container-xl);
+    margin-inline: auto;
+    width: 100%;
+    padding-block: var(--space-12);
+  }
+
+  /* TEXT SIDE */
+  .hero-text {
+    padding-right: var(--space-8);
+  }
+
+  .hero-eyebrow {
+    margin-bottom: var(--space-4);
+  }
+
+  .hero-headline {
+    font-family: var(--font-serif);
+    font-size: var(--text-5xl);
+    font-weight: 300;
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tighter);
+    color: var(--color-ink);
+    margin-bottom: var(--space-6);
+  }
+
+  .hero-headline em {
+    font-style: italic;
+    color: var(--color-accent);
+  }
+
+  .hero-body {
+    font-size: var(--text-md);
+    font-weight: 300;
+    line-height: var(--leading-relaxed);
+    color: var(--color-ink-muted);
+    margin-bottom: var(--space-8);
+    max-width: 42ch;
+  }
+
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+    flex-wrap: wrap;
+  }
+
+  .hero-about-link {
+    font-size: var(--text-xs);
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+    color: var(--color-ink-muted);
+    transition: color var(--transition-base);
+  }
+
+  .hero-about-link:hover {
+    color: var(--color-ink);
+  }
+
+  /* VISUAL SIDE */
+  .hero-visual {
+    position: relative;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    grid-template-rows: auto auto;
+    gap: var(--space-2);
+    align-items: start;
+  }
+
+  .hero-img-primary {
+    grid-column: 1;
+    grid-row: 1 / 3;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    aspect-ratio: 4/5;
+  }
+
+  .hero-img-primary img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-img-secondary {
+    grid-column: 2;
+    grid-row: 1;
+    margin-top: var(--space-12);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    aspect-ratio: 5/6;
+  }
+
+  .hero-img-secondary img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-annotation {
+    grid-column: 2;
+    grid-row: 2;
+    padding: var(--space-3);
+    border: 1px solid var(--color-border);
+    background: var(--color-bg);
+    margin-top: var(--space-2);
+  }
+
+  .hero-annotation .t-eyebrow {
+    margin-bottom: var(--space-1);
+    display: block;
+  }
+
+  .hero-annotation-link {
+    font-family: var(--font-serif);
+    font-size: var(--text-sm);
+    font-weight: 400;
+    line-height: var(--leading-snug);
+    color: var(--color-ink);
+    display: block;
+    transition: color var(--transition-base);
+  }
+
+  .hero-annotation-link span {
+    font-family: var(--font-sans);
+    font-size: var(--text-xs);
+    color: var(--color-accent);
+    display: block;
+    margin-top: 4px;
+  }
+
+  .hero-annotation-link:hover {
+    color: var(--color-accent);
+  }
+
+  /* Scroll indicator */
+  .hero-scroll {
+    position: absolute;
+    bottom: var(--space-6);
+    left: var(--container-pad);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  @keyframes scrollLine {
+    from { transform: scaleY(0); transform-origin: top; }
+    to   { transform: scaleY(1); transform-origin: top; }
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 48px;
+    background: var(--color-accent);
+    animation: scrollLine 1.2s ease 1s both;
+  }
+
+  @media (max-width: 1024px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+    }
+
+    .hero-text {
+      padding-right: 0;
+      order: 1;
+    }
+
+    .hero-visual {
+      order: 2;
+      max-width: 560px;
+    }
+
+    .hero-headline {
+      font-size: clamp(2.5rem, 8vw, 5rem);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero-visual {
+      grid-template-columns: 2fr 1fr;
+    }
+
+    .hero-annotation {
+      display: none;
+    }
+  }
+</style>

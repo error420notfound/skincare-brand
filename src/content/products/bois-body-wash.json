@@ -1,0 +1,30 @@
+{
+  "name": "Bois de Forêt Body Wash",
+  "collection": "Body Rituals",
+  "collectionSlug": "body-rituals",
+  "price": 54,
+  "shortDesc": "A forest-scented body wash of exceptional gentleness, formulated with cold-pressed oat and a preserved silver fir extract from the Vosges.",
+  "description": "There are cleansers that strip, and those that cleanse. The Bois de Forêt Body Wash belongs unambiguously to the latter category. Its surfactant system—derived entirely from coconut and glucose—creates a fine, pillowy lather that rinses clean without disturbing the skin's lipid film.\n\nThe scent is our most considered creation: a precise reconstruction of a Silver Fir forest in the Vosges mountains at dawn, before the sun has fully risen. Preserved fir extract, wild cedarwood, and a trace of cold-pressed juniper berry—nothing synthetic, nothing approximated.\n\nIt is the kind of scent that disappears rather than announces itself. We consider this its greatest virtue.",
+  "ingredients": [
+    { "name": "Silver Fir Extract (Vosges)", "benefit": "Wild-harvested from protected Vosges forest preserves. Rich in bornyl acetate, with documented calming effect on the nervous system." },
+    { "name": "Glucose-Derived Surfactants", "benefit": "A gentle, biodegradable cleansing system that maintains the skin's natural oil balance while providing thorough cleansing." },
+    { "name": "Cold-Pressed Oat Extract", "benefit": "Beta-glucan-rich oat provides immediate barrier reinforcement and long-term reduction in reactive skin responses." },
+    { "name": "Wild Cedarwood Oil", "benefit": "Sustainably sourced, with a warm, dry character that grounds the fragrance composition and contributes antifungal properties." }
+  ],
+  "usage": "Apply a coin-sized amount to wet skin or a damp cloth. Work into a lather with circular movements, paying attention to the crease points of the body. Rinse thoroughly with warm water. For the most pronounced fragrance experience, allow the lather to remain on the skin for 30 seconds before rinsing.",
+  "benefits": [
+    "Gentle enough for daily use on sensitive skin",
+    "Preserves natural skin oils",
+    "Natural forest fragrance — no synthetic musks",
+    "Biodegradable formula and recycled packaging"
+  ],
+  "images": [
+    "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=800&q=85",
+    "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=800&q=85",
+    "https://images.unsplash.com/photo-1582562124811-c09040d0a901?w=800&q=85"
+  ],
+  "inStock": true,
+  "featured": false,
+  "isNew": false,
+  "weight": "250ml"
+}

@@ -1,0 +1,50 @@
+---
+import Layout from '../components/layout/Layout.astro';
+import CheckoutFlow from '../components/checkout/CheckoutFlow';
+---
+
+<Layout
+  title="Checkout"
+  description="Complete your order — shipping, payment, and review."
+>
+  <div class="checkout-page">
+    <header class="checkout-page-header container container--xl">
+      <a href="/" class="checkout-logo">Maison Clair</a>
+    </header>
+
+    <div class="container checkout-container">
+      <CheckoutFlow client:load />
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .checkout-page {
+    padding-top: 4rem;
+    min-height: 100svh;
+  }
+
+  .checkout-page-header {
+    padding-block: var(--space-4);
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: var(--space-8);
+  }
+
+  .checkout-logo {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: var(--color-ink);
+    transition: color var(--transition-base);
+  }
+
+  .checkout-logo:hover {
+    color: var(--color-accent);
+  }
+
+  .checkout-container {
+    max-width: 1100px;
+    padding-bottom: var(--space-16);
+  }
+</style>

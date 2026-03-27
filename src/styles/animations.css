@@ -1,0 +1,76 @@
+/* ============================================================
+   MAISON CLAIR — Animation Utilities
+   ============================================================ */
+
+/* Scroll-reveal base state (JS adds .is-visible) */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity var(--transition-slow),
+    transform var(--transition-slow);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal--delay-1 { transition-delay: 100ms; }
+.reveal--delay-2 { transition-delay: 200ms; }
+.reveal--delay-3 { transition-delay: 350ms; }
+.reveal--delay-4 { transition-delay: 500ms; }
+
+/* Fade only variant */
+.reveal-fade {
+  opacity: 0;
+  transition: opacity var(--transition-slow);
+}
+
+.reveal-fade.is-visible {
+  opacity: 1;
+}
+
+/* Page transition overlay */
+@keyframes pageReveal {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.page-enter {
+  animation: pageReveal 700ms ease forwards;
+}
+
+/* Underline link animation */
+.link-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width var(--transition-base);
+}
+
+.link-underline:hover::after {
+  width: 100%;
+}
+
+/* Hover image scale */
+.img-hover-wrap {
+  overflow: hidden;
+}
+
+.img-hover-wrap img {
+  transition: transform var(--transition-crawl) ease;
+}
+
+.img-hover-wrap:hover img {
+  transform: scale(1.04);
+}
